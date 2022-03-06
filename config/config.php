@@ -15,7 +15,9 @@ return [
     'layout' => 'main',
     'components' => [
         'db' => [],
-        'main' => [],
+        'main' => [
+            'class' => \app\controllers\FrontController::class
+        ],
         'request' => [],
         'comment' => [],
         'product' => [],

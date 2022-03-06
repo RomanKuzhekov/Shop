@@ -10,6 +10,7 @@ namespace app\base;
 
 include "../traits/Singleton.php";
 
+use app\controllers\Controller;
 use app\traits\Singleton;
 
 /**
@@ -22,13 +23,17 @@ use app\traits\Singleton;
  *
  * Class App
  * @package app\base
+ * @property Controller main
  *
  */
 
 class App
 {
-
     use Singleton;
+
+    public $config;
+    private $items = [];
+    private $components;
 
     public function call()
     {
@@ -37,7 +42,8 @@ class App
 
     public function run()
     {
-
+        $this->config = include "../config/config.php";
+        $this->main->runAction();  //Запускаем FrontController
     }
 
     /**
@@ -55,7 +61,10 @@ class App
      */
     private function get(string $key)
     {
-
+        if (!isset($this->items[$key])) {
+            $this->items[$key] = $this->createComponent($key);
+        }
+        return $this->items[$key];
     }
 
     /**
@@ -65,7 +74,19 @@ class App
      */
     private function createComponent(string $name)
     {
+        if (isset($this->config['components'][$name])) {
+            $params = $this->config['components'][$name];
+            $className = $params['class'];
+            var_dump($className);
 
+            if (class_exists($className)) {  //реализуем подгрузку компонента для создания экзмепляра и загрузки свойств в конструктор(например для класса Db)
+                unset($params['class']);
+                $reflection = new \ReflectionClass($className);
+                return $this->components = $reflection->newInstanceArgs($params);
+            }
+            throw new \Exception("Класс $className не был найден.");
+        }
+        throw new \Exception("Компонент $name не был найден в конфиге");
     }
 
 
