@@ -38,6 +38,7 @@ class FrontController extends Controller
 
         $this->checkLogin();
 
+        var_dump("render");
 
         try {
 
