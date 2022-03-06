@@ -8,7 +8,5 @@
 
 require_once "../base/App.php";
 
-$obj = \app\base\App::call();
-var_dump($obj);
+\app\base\App::call()->run();
 
-var_dump($obj->run());

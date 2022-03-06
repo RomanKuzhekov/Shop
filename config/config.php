@@ -18,7 +18,9 @@ return [
         'main' => [
             'class' => \app\controllers\FrontController::class
         ],
-        'request' => [],
+        'request' => [
+            'class' => \app\services\Request::class
+        ],
         'comment' => [],
         'product' => [],
         'user' => [],

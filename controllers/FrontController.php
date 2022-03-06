@@ -9,12 +9,49 @@
 namespace app\controllers;
 
 
-class FrontController
+use app\base\App;
+
+/**
+ * Роутинг приложения
+ * Получаем имя контроллера, action
+ * Создаем экзмепляр класса на основе полученного имени контроллера и запускам runAction
+ * Проверка авторизованного пользователя на сайте
+ *
+ *
+ *
+ * Class FrontController
+ * @package app\controllers
+ * @property string Controller
+ *
+ */
+class FrontController extends Controller
 {
 
-    public function runAction()
+    private $controller;
+
+    public function actionIndex()
+    {
+        $request = App::call()->request;
+        $this->controllerName = $request->getControllerName() ?: App::call()->config['defaultController'];
+        $this->actionName = $request->getActionName();
+        $this->controller = App::call()->config['controller_namespace'] . ucfirst($this->controllerName) . "Controller";
+
+        $this->checkLogin();
+
+
+        try {
+
+        } catch (\Exception $e) {
+
+        }
+
+
+    }
+
+    private function checkLogin()
     {
 
     }
+
 
 }
