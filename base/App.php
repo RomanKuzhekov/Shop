@@ -8,6 +8,7 @@
 
 namespace app\base;
 
+include "../vendor/autoload.php";
 include "../traits/Singleton.php";
 
 use app\controllers\Controller;

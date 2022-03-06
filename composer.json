@@ -1,0 +1,18 @@
+{
+  "name": "vendor/shop",
+  "description": "Shop",
+  "type": "project",
+  "authors": [
+    {
+      "name": "RomanKuzhekov",
+      "email": "profet@inbox.ru"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "app\\": ""
+    }
+  }
+}
