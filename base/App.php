@@ -8,6 +8,10 @@
 
 namespace app\base;
 
+include "../traits/Singleton.php";
+
+use app\traits\Singleton;
+
 /**
  * Главный класс для входа в приложение
  * Синглтон для одиночного подключения класса
@@ -24,19 +28,7 @@ namespace app\base;
 class App
 {
 
-    private static $instance = null;
-
-    private function __construct(){}
-    private function __clone(){}
-    private function __wakeup(){}
-
-    private static function getInstance()
-    {
-        if (is_null(static::$instance)) {
-            static::$instance = new static();
-        }
-        return static::$instance;
-    }
+    use Singleton;
 
     public function call()
     {
