@@ -10,6 +10,8 @@ namespace app\controllers;
 
 
 use app\base\App;
+use app\services\Renderer;
+use app\services\Request;
 
 /**
  * Роутинг приложения
@@ -22,7 +24,6 @@ use app\base\App;
  * Class FrontController
  * @package app\controllers
  * @property string Controller
- *
  */
 class FrontController extends Controller
 {
@@ -31,19 +32,19 @@ class FrontController extends Controller
 
     public function actionIndex()
     {
+        /** @var Request $request */
         $request = App::call()->request;
         $this->controllerName = $request->getControllerName() ?: App::call()->config['defaultController'];
         $this->actionName = $request->getActionName();
         $this->controller = App::call()->config['controller_namespace'] . ucfirst($this->controllerName) . "Controller";
 
         $this->checkLogin();
-
-        var_dump("render");
-
+        /** @var Controller $controller */
+        $controller = new $this->controller(new Renderer());
         try {
-
+            $controller->runAction($this->controllerName, $this->actionName);
         } catch (\Exception $e) {
-
+            $this->redirect("./");
         }
 
 

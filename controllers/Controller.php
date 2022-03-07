@@ -9,6 +9,8 @@
 namespace app\controllers;
 
 use app\base\App;
+use app\interfaces\IRenderer;
+use app\services\Renderer;
 use app\traits\TController;
 
 /**
@@ -25,9 +27,15 @@ class Controller
     protected $controllerName;
     protected $actionName;
 
+    /** @var Renderer null  */
+    public $renderer = null;
 
     use TController;
 
+    public function __construct(IRenderer $renderer = null)
+    {
+        $this->renderer = $renderer;
+    }
 
     public function runAction($controller = null, $action = null)
     {
@@ -36,6 +44,22 @@ class Controller
         $action = "action" . ucfirst($this->actionName);
         $this->$action();
 
+    }
+
+    public function render($template, $params = [])
+    {
+        if (App::call()->config['useLayout']) {
+
+
+            return $this->renderTemplate("layouts/" . App::call()->config['layout'], []);
+        } else {
+            return $this->renderTemplate($template, $params);
+        }
+    }
+
+    private function renderTemplate($template, $params = [])
+    {
+        return $this->renderer->render($template, $params);
     }
 
     protected function redirect($url)

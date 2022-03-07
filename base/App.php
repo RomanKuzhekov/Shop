@@ -78,7 +78,7 @@ class App
         if (isset($this->config['components'][$name])) {
             $params = $this->config['components'][$name];
             $className = $params['class'];
-            var_dump($className);
+
 
             if (class_exists($className)) {  //реализуем подгрузку компонента для создания экзмепляра и загрузки свойств в конструктор(например для класса Db)
                 unset($params['class']);
