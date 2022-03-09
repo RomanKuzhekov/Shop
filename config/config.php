@@ -14,7 +14,15 @@ return [
     'useLayout' => true,
     'layout' => 'main',
     'components' => [
-        'db' => [],
+        'db' => [
+            'class' => \app\services\Db::class,
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'login' => 'root',
+            'password' => '',
+            'database' => 'myShop',
+            'charset' => 'UTF8',
+        ],
         'main' => [
             'class' => \app\controllers\FrontController::class
         ],
