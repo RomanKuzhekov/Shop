@@ -35,14 +35,14 @@ class Model
      */
     public function getOne(int $id)
     {
-        return $this->conn->fetchOne("select * from {$this->tableName} where status=1 and id=:id", ['id' => $id],
+        return $this->conn->fetchOne("SELECT * FROM {$this->tableName} where status = 1 and id = :id", ['id' => $id],
             $this->entityClass
         );
     }
 
     public function getAll()
     {
-        return $this->conn->fetchAll("select * from {$this->tableName} where status=1",
+        return $this->conn->fetchAll("SELECT * FROM {$this->tableName} where status = 1",
             $this->entityClass
         );
     }

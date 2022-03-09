@@ -63,7 +63,7 @@ class Db
         return true;
     }
 
-    public function fecthOne($sql, $params = [], $class)
+    public function fetchOne($sql, $params = [], $class)
     {
         $smtp = $this->query($sql, $params);
         $smtp->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $class);
