@@ -34,7 +34,6 @@ class Db
         $this->config['charset'] = $charset;
     }
 
-
     private function getConnection()
     {
         if (is_null($this->conn)) {
