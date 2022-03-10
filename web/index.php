@@ -6,13 +6,15 @@
  * Time: 20:14
  */
 
-require_once "../base/App.php";
+//ini_set('display_errors', 'on');
+//error_reporting(E_ALL);
 
+require_once "../base/App.php";
 \app\base\App::call()->run();
 
 
 
-$a = new \app\models\Product();
-//var_dump($a);
-//var_dump($a->getConnection());
-var_dump($a->getOne(1));
+//$a = new \app\models\Product();
+////var_dump($a);
+////var_dump($a->getConnection());
+//var_dump($a->getOne(1));
