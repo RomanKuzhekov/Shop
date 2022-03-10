@@ -1,0 +1,268 @@
+a{
+    text-decoration: none;
+    color: #333;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    background-color: #F8F8F8;
+}
+#container{
+    width: 1000px;
+    margin:0 auto;
+    border: 1px #ccc solid;
+}
+header{
+    border-bottom: 2px solid #333;
+    background: url(../images/main/logo.png) no-repeat scroll 0 0 transparent;
+    height: 220px;
+    animation: header_opacity 3000ms;
+}
+header .logotip img{
+    margin-left: 30px;
+    height: 180px;
+    float: left;
+}
+.leftblock .menu{
+    background-color: #26D2FC;
+}
+.leftblock .menu ul{
+    list-style: none;
+    width: 100%;
+}
+.leftblock .menu ul li{
+    padding: 10px 25px 10px 20px;
+    border-bottom: 1px dotted #fff;
+}
+.leftblock .menu ul li:last-child{
+    border: none;
+}
+.leftblock .menu ul li a{
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.leftblock .menu ul li a:hover, header .menu ul .active{
+    color: #fff;
+}
+.leftblock .menu ul ul{
+    padding-left: 20px;
+    border-bottom: 1px dotted #fff;
+}
+.leftblock{
+    display: inline-block;
+    width: 170px;
+}
+.content{
+    color: #000;
+    display:inline-block;
+    padding: 10px 10px 10px 20px;
+    vertical-align: top;
+    width: 790px;
+    border-left: 2px solid #ccc;
+    min-height: calc(100vh - 463px);
+}
+.item_desc{
+    float: right;
+    width: 290px;
+    padding: 10px;
+}
+
+.content .desc_item h2, .content .desc_item h3{
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;
+}
+.short{
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+.desc_item .detail{
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+.content h1{
+    margin: 10px;
+}
+.item{
+    background-color: #fff;
+    display: inline-block;
+    border: 1px solid #ccc;
+    width: 240px;
+    text-align: center;
+    padding-bottom: 10px;
+    vertical-align: top;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+.item:nth-of-type(3n){
+    float: right;
+    margin-right: 0;
+}
+.item img{
+    width: 150px;
+    height: 150px;
+    margin: 15px 0;
+}
+.item .item-name a:hover{
+    text-decoration: underline;
+}
+.item h3{
+    margin: 0;
+    font-size: 18px;
+}
+.item:hover{
+    border: 1px solid #999;
+}
+
+.images-item{
+    float: left;
+}
+.small-img{
+    border: 1px dashed #ccc;
+}
+.small-img img{
+    width: 150px;
+    height:100px;
+    border-right:1px dashed #666;
+}
+.price{
+    font-size: 24px;
+    color: coral;
+    margin: 10px;
+}
+.add-basket{
+    border: 1px solid #ccc;
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #17689b;
+    color: #fff;
+    cursor: pointer;
+}
+.add-to-basket{
+    border: 1px solid #ccc;
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #17689b;
+}
+.add-to-basket:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+.add-to-basket a{
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    width: 150px;
+    height: 40px;
+    padding-top: 10px;
+    text-align: center;
+}
+.item-content{
+    width: 820px;
+}
+.item-content h3{
+    margin: 5px 0;
+}
+.item-content .img-big{
+    display: inline-block;
+    vertical-align: top;
+}
+.item-content .o-pay{
+    padding: 10px 20px;
+    width: 150px;
+    margin: auto;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+.item-content .img-big img{
+    width: 500px;
+    height: 400px;
+    border: 1px solid #ccc;
+}
+.item-content .img-big img:hover{
+    border: none;
+    padding: 1px;
+}
+.desc_item p:first-letter{
+    color: red;
+    font-size: 20px;
+}
+.item-content .properties{
+    padding: 0px 15px;
+    margin: 10px;
+}
+.item-content .properties li{
+    background: url(../img/marker.gif) no-repeat;
+    padding-left: 35px;
+    padding-bottom: 5px;
+    width: 500px;
+    line-height: 25px;
+    color: #555;
+    font-weight: 500;
+}
+.item-content .properties li span{
+    float: right;
+}
+.reg span{
+    color: red;
+}
+.comments{
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 5px;
+}
+.basket{
+    float: right;
+    padding-right: 10px;
+}
+.fbasket{
+    width: 100%;
+    text-align: center;
+}
+.fbasket th, .fbasket td{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+footer{
+    background-color: #373737;
+    color: #fff;
+    border-top: 1px solid #000;
+    height: 40px;
+}
+footer h4{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.footer-menu{
+    margin: 0;
+    padding: 0;
+}
+.footer-menu div{
+    float: left;
+    margin: 0 40px 20px 20px;
+    max-width: 300px;
+}
+footer, footer a{
+    color: #fff;
+}
+footer p{
+    clear: both;
+    background-color: #333333;
+    padding: 10px 5px;
+}
+
+
