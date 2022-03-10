@@ -17,7 +17,6 @@ namespace app\models;
  */
 class Product extends Model
 {
-
     private $tableNameImg;
 
     /**
@@ -31,9 +30,10 @@ class Product extends Model
         $this->entityClass = Product::class;
     }
 
-    public function getImg()
+    public function getImg(int $idProduct)
     {
-
+        return $this->conn->fetchOne("SELECT * FROM {$this->tableNameImg} WHERE id_product = $idProduct",
+            $this->entityClass
+        );
     }
-
 }

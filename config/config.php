@@ -29,11 +29,21 @@ return [
         'request' => [
             'class' => \app\services\Request::class
         ],
-        'comment' => [],
-        'product' => [],
-        'user' => [],
-        'category' => [],
-        'shop' => [],
+        'comment' => [
+            'class' => \app\models\Comments::class
+        ],
+        'product' => [
+            'class' => \app\models\Product::class
+        ],
+        'user' => [
+            'class' => \app\models\User::class
+        ],
+        'category' => [
+            'class' => \app\models\Category::class
+        ],
+        'shop' => [
+            'class' => \app\controllers\ShopController::class
+        ],
     ]
 ];
 
