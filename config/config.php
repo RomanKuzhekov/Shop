@@ -43,7 +43,7 @@ return [
         ],
         'shop' => [
             'class' => \app\controllers\ShopController::class
-        ],
+        ]
     ]
 ];
 
