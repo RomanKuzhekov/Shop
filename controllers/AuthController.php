@@ -18,7 +18,7 @@ use app\services\Auth;
  * Class AuthController
  * @package app\controllers
  */
-class AuthController
+class AuthController extends Controller
 {
     public function actionIndex()
     {

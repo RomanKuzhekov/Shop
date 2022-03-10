@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 use app\base\App;
+use app\models\User;
 use app\services\Renderer;
 use app\services\Request;
 

@@ -32,7 +32,7 @@ class Product extends Model
 
     public function getImg(int $idProduct)
     {
-        return $this->conn->fetchOne("SELECT * FROM {$this->tableNameImg} WHERE id_product = $idProduct",
+        return $this->conn->fetchAll("SELECT * FROM {$this->tableNameImg} WHERE id_product = $idProduct",
             $this->entityClass
         );
     }

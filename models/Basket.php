@@ -21,7 +21,7 @@ use app\base\App;
  * @property string name_product
  * @property int price
  */
-class Basket
+class Basket extends Model
 {
     protected static $fields = [
         'id_basket',

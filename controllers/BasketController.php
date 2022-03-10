@@ -21,7 +21,7 @@ use app\models\Basket;
  * Class BasketController
  * @package app\controllers
  */
-class BasketController
+class BasketController extends Controller
 {
     private $fullBasket;
     private $data;
