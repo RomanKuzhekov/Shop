@@ -15,7 +15,7 @@ namespace app\controllers;
  * Class ContactController
  * @package app\controllers
  */
-class ContactController extends Controller
+final class ContactController extends Controller
 {
     public function actionIndex()
     {

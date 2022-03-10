@@ -8,7 +8,6 @@
 
 namespace app\controllers;
 
-
 use app\base\App;
 
 /**
@@ -18,7 +17,7 @@ use app\base\App;
  * Class GuestbookController
  * @package app\controllers
  */
-class GuestbookController extends Controller
+final class GuestbookController extends Controller
 {
     public function actionIndex()
     {

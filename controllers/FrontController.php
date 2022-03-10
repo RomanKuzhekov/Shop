@@ -19,15 +19,12 @@ use app\services\Request;
  * Создаем экзмепляр класса на основе полученного имени контроллера и запускам runAction
  * Проверка авторизованного пользователя на сайте
  *
- *
- *
  * Class FrontController
  * @package app\controllers
  * @property string Controller
  */
 class FrontController extends Controller
 {
-
     private $controller;
 
     public function actionIndex()
@@ -37,7 +34,6 @@ class FrontController extends Controller
         $this->controllerName = $request->getControllerName() ?: App::call()->config['defaultController'];
         $this->actionName = $request->getActionName();
         $this->controller = App::call()->config['controller_namespace'] . ucfirst($this->controllerName) . "Controller";
-
         $this->checkLogin();
         /** @var Controller $controller */
         $controller = new $this->controller(new Renderer());
@@ -46,14 +42,16 @@ class FrontController extends Controller
         } catch (\Exception $e) {
             $this->redirect("./");
         }
-
-
     }
 
     private function checkLogin()
     {
-
+        session_start();
+        if ($this->controller != "\\" . AuthController::class) {
+            $user = (new User())->getCurrent();
+            if (!empty($_SESSION['sid']) && is_null($user)) {
+                $this->redirect('auth/logout');
+            }
+        }
     }
-
-
 }

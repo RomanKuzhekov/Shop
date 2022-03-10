@@ -21,6 +21,8 @@ use app\traits\TController;
  *
  * Class Controller
  * @package app\controllers
+ * @property string controllerName
+ * @property string actionName
  */
 class Controller
 {
@@ -43,15 +45,20 @@ class Controller
         $this->actionName = $action ?: App::call()->config['defaultAction'];  //формируем имя actiona и запускаем как метод вызываемого класса
         $action = "action" . ucfirst($this->actionName);
         $this->$action();
-
     }
 
     public function render($template, $params = [])
     {
         if (App::call()->config['useLayout']) {
-
-
-            return $this->renderTemplate("layouts/" . App::call()->config['layout'], []);
+            $categories = App::call()->category->getAll();
+            $mBasket = App::call()->shop->miniBasket();
+            return $this->renderTemplate("layouts/" . App::call()->config['layout'],
+                [
+                    'content' => $this->renderTemplate($template, $params),
+                    'categories' => $categories,
+                    'mBasket' => $mBasket
+                ]
+            );
         } else {
             return $this->renderTemplate($template, $params);
         }
@@ -67,4 +74,8 @@ class Controller
         header("Location: /$url");
     }
 
+    public function getDate()
+    {
+        return date('Y-m-d H-i-s');
+    }
 }

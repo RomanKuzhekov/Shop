@@ -21,7 +21,7 @@ use app\models\Category;
  * Class CategoryController
  * @package app\controllers
  */
-class CategoryController extends Controller
+final class CategoryController extends Controller
 {
     public function actionView()
     {
@@ -33,9 +33,7 @@ class CategoryController extends Controller
             $images = App::call()->product->getImg($product->id);
             $img[$product->id] = !empty($images[0]->small) ? $images[0]->small : false;
         }
-
         App::call()->shop->setBasket();
-
         echo $this->render(
             "{$this->controllerName}/{$this->actionName}",
             [

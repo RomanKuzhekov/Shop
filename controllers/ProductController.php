@@ -8,20 +8,52 @@
 
 namespace app\controllers;
 
+use app\base\App;
+use app\models\Product;
 
-class ProductController extends Controller
+
+/**
+ * Главная страница
+ * вывод товаров, карточка товара
+ *
+ * Class ProductController
+ * @package app\controllers
+ */
+final class ProductController extends Controller
 {
-
     public function actionIndex()
     {
-        var_dump(111);
+        $products = $this->getModel()->getAll();
+        App::call()->shop->setBasket();
+        foreach ($products as $product) {
+            $images = $this->getModel()->getImg($product->id);
+            $img[$product->id] = (!empty($images[0]->small)) ? $images[0]->small : false;
+        }
+        echo $this->render("{$this->controllerName}/$this->actionName", [
+            'products' => $products,
+            'img' => $img
+        ]);
     }
 
     public function actionView()
     {
-
-        echo $this->render("{$this->controllerName}/{$this->actionName}", []);
-
+        $id = App::call()->request->getParams();
+        if (!$product = $this->getModel()->getOne($id)) {
+            throw new \Exception("404");
+        }
+        $images = $this->getModel()->getImg($id);
+        App::call()->shop->setBasket();
+        echo $this->render("{$this->controllerName}/$this->actionName", [
+            'product' => $product,
+            'images' => $images
+        ]);
     }
 
+    /**
+     * @return Product
+     */
+    private function getModel()
+    {
+        return App::call()->product;
+    }
 }
