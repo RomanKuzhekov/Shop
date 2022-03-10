@@ -8,6 +8,10 @@
 
 namespace app\controllers;
 
+use app\base\App;
+use app\interfaces\IRenderer;
+use app\models\Basket;
+
 
 /**
  * Полная корзина, Заказ товаров

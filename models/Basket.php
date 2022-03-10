@@ -8,6 +8,9 @@
 
 namespace app\models;
 
+use app\base\App;
+
+
 /**
  * Корзина
  *
