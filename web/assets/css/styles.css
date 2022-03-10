@@ -205,7 +205,7 @@ header .logotip img{
     margin: 10px;
 }
 .item-content .properties li{
-    background: url(../img/marker.gif) no-repeat;
+    /*background: url(../img/marker.gif) no-repeat;*/
     padding-left: 35px;
     padding-bottom: 5px;
     width: 500px;
