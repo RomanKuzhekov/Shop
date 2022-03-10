@@ -8,7 +8,6 @@
 
 namespace app\models;
 
-
 use app\base\App;
 
 class Category extends Model
