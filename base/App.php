@@ -12,6 +12,11 @@ include "../vendor/autoload.php";
 include "../traits/Singleton.php";
 
 use app\controllers\Controller;
+use app\controllers\ShopController;
+use app\models\Category;
+use app\models\Comments;
+use app\models\Product;
+use app\services\Db;
 use app\traits\Singleton;
 
 /**
@@ -25,7 +30,11 @@ use app\traits\Singleton;
  * Class App
  * @package app\base
  * @property Controller main
- *
+ * @property Db db
+ * @property Category category
+ * @property ShopController shop
+ * @property Comments comment
+ * @property Product product
  */
 
 class App
@@ -78,8 +87,6 @@ class App
         if (isset($this->config['components'][$name])) {
             $params = $this->config['components'][$name];
             $className = $params['class'];
-
-
             if (class_exists($className)) {  //реализуем подгрузку компонента для создания экзмепляра и загрузки свойств в конструктор(например для класса Db)
                 unset($params['class']);
                 $reflection = new \ReflectionClass($className);
@@ -89,9 +96,4 @@ class App
         }
         throw new \Exception("Компонент $name не был найден в конфиге");
     }
-
-
-
-
-
 }
