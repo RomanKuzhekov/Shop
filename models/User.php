@@ -8,14 +8,19 @@
 
 namespace app\models;
 
+use app\services\Auth;
 
+/**
+ * Class User
+ * @package app\models
+ */
 class User extends Model
 {
     protected static $fields = [
         'name',
         'login',
         'password',
-        'created_at',
+        'created_at'
     ];
 
     public function __construct()
@@ -27,11 +32,10 @@ class User extends Model
 
     public function getByLoginPass($login, $pass)
     {
-        $sql = "SELECT * FROM {$this->tableName} WHERE login = :login AND password = :password";
+        $sql = "SELECT  * FROM {$this->tableName} WHERE login = :login AND password = :password";
         return $this->conn->fetchOne($sql,
             [
-                ":login" => $login,
-                ":password" => md5($pass)
+                ":login" => $login, ":password" => md5($pass)
             ],
             $this->entityClass
         );
@@ -47,15 +51,17 @@ class User extends Model
 
     public function getUserId()
     {
-
+        $sid = (new Auth())->getSessionId();
+        if (!is_null($sid)) {
+            return (new Session())->getUidBySid($sid);
+        }
+        return null;
     }
 
-    public function getById(int $id)
+    public function getById($id)
     {
-        return $this->conn->fetchOne("SELECT * FROM {$this->tableName} WHERE id = ?", [$id],
-            $this->entityClass
+        return $this->conn->fetchOne(
+            "SELECT u.* FROM {$this->tableName} u WHERE u.id = ?", [$id], $this->entityClass
         );
     }
-
-
 }
