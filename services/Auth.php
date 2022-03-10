@@ -11,6 +11,10 @@ namespace app\services;
 use app\models\Session;
 use app\models\User;
 
+/**
+ * Class Auth
+ * @package app\services
+ */
 class Auth
 {
     protected $sessionKey = 'sid';

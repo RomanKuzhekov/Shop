@@ -8,9 +8,9 @@
 
 namespace app\services;
 
-
 use app\base\App;
 use app\interfaces\IRenderer;
+
 
 /**
  * Рендеринг шаблона

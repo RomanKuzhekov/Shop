@@ -8,6 +8,7 @@
 
 namespace app\services;
 
+
 /**
  * Обработчик запросов из адресной строки браузера
  * Парсим адресную строку браузера и возвращаем имя:
@@ -20,7 +21,6 @@ namespace app\services;
  */
 class Request
 {
-
     private $requestString;
     private $controllerName;
     private $actionName;
@@ -28,7 +28,6 @@ class Request
     private $patterns = [
         "#(?P<controller>\w+)[/]?(?P<action>\w+)?[/]?(?P<params>.*)#ui"
     ];
-
 
     public function __construct()
     {
@@ -61,5 +60,4 @@ class Request
     {
         return $this->params;
     }
-
 }
