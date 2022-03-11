@@ -1,0 +1,3 @@
+rewriteengine on
+rewritecond %{REQUEST_URI} ^/
+rewriterule ^(.*)$ /web/$1 [qsa,l]

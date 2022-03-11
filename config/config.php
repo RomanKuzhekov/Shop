@@ -7,7 +7,7 @@
  */
 
 return [
-    'root_dir' => $_SERVER['DOCUMENT_ROOT']."/../",
+    'root_dir' => $_SERVER['DOCUMENT_ROOT']."/",
     'controller_namespace' => 'app\controllers\\',
     'defaultController' => 'product',
     'defaultAction' => 'index',
