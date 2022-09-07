@@ -37,6 +37,8 @@ CREATE TABLE `basket` (
   `price` varchar(100) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   `state` tinyint(1) NOT NULL DEFAULT '0',
+  `delivery` varchar(100) NOT NULL,
+  `payment` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
