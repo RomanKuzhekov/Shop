@@ -85,6 +85,8 @@ class ShopController extends Controller
                 'id_product' => $_POST['id'],
                 'name_product' => $_POST['name'],
                 'price' => $_POST['price'],
+                'delivery' => null,
+                'payment' => null,
                 'created_at' => $this->getDate()
             ]
         );
