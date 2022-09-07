@@ -28,6 +28,8 @@ class Basket extends Model
         'id_product',
         'name_product',
         'price',
+        'delivery',
+        'payment',
         'created_at'
     ];
 
